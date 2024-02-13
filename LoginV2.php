@@ -6,13 +6,17 @@
   <title>Hello Hello</title>
 </head>
 <body>
-      <form action="Loginv2p2.php" method="post">
+      <form action="formhandler.inc.php" method="post">
         <label for="username">Username: </label>
           <input type= "username" id="text" name="username" placeholder="Enter Username.....">
           <br>
           <br>
           <label for="password">Password: </label>
           <input required type= "password" id="pwd" name="pwd" placeholder="Enter Password....">  
+          <br>
+          <br>
+          <label for="email">Email: </label>
+          <input type= "email" id="text" name="email" placeholder="Enter Email.....">
           <br>
           <br>
       <button type="submit" value="submit">Login</button>
