@@ -2,8 +2,8 @@
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"];
-    $pwd = $_POST["username"];
-    $email = $_POST["username"];
+    $pwd = $_POST["pwd"];
+    $email = $_POST["email"];
 
     try {
         
@@ -27,13 +27,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (is_email_registered($pdo, $email)){
             $errors["email_used"] = "Email already registered!";
         }
-        require_once 'config_session .inc.php';
 
-        if($erros){
+        require_once 'config_session.inc.php';
+
+        if($errors){
             $_SESSION["errors_signup"] = $errors;
+            
+            $signupData = [
+                "username" => $username, 
+                "email" => $email, 
+            ];
+            $_SESSION["signup_data"] = $signupData;
+
             header("Location: ../LoginV3.php");
             die();
         }
+        //Create user in db if user recieves no errors
+        create_user($pdo, $pwd, $username, $email);
+        header("Location: ../LoginV3.php?signup=success");
+        $pdo = null;
+        $stmt = null;
+            die();
 
     } catch (PDOException $e) {
         die("Query Failed: " . $e->getMessage()); 
