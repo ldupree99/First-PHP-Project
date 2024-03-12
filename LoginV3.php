@@ -38,9 +38,9 @@ check_login_errors();
     <h3> Signup </h3>
 
     <form action="Includes/signup.inc.php" method="post">
-        <?php
-       signup_inputs()
-       ?> 
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder= "E-Mail">
         <button>Signup</button>
     </form>
 
