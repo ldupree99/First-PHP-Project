@@ -51,5 +51,17 @@ check_login_errors();
     <form action="Includes/logout.inc.php" method="post">
         <button>Logout</button>
     </form>
+
+        <br>
+        <br>
+        <br>
+        <h3>Change account</h3>
+    <form action="Includes/userupdate.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder="E-Mail">
+        <button>Update</button>
+    </form>
+
 </body>
 </html>
