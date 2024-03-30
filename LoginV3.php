@@ -2,16 +2,17 @@
 require_once 'Includes/config_session.inc.php';
 require_once 'Includes/signup_view.inc.php';
 require_once 'Includes/login_view.inc.php';
-
+require_once 'Includes/footer_links.php';
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h3> 
@@ -62,6 +63,21 @@ check_login_errors();
         <input type="text" name="email" placeholder="E-Mail">
         <button>Update</button>
     </form>
+
+    <!-- Footer section -->
+    <div id="footer-links">
+    <?php foreach ($footerLinks as $category => $links): ?>
+        <div class="footer-category">
+            <h4><?php echo $category; ?></h4>
+            <ul>
+                <?php foreach ($links as $link): ?>
+                    <li><a href="<?php echo $link['url']; ?>"><?php echo $link['name']; ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endforeach; ?>
+</div>
+
 
 </body>
 </html>
